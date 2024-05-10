@@ -1,0 +1,102 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    background-color: aliceblue;
+}
+h1{
+    font-size: 50px;
+    margin-top: 50px;
+    margin-left: 10%;
+}
+.title{
+    height: 250px;
+}
+#todoTable{
+    border-collapse: collapse;
+    font-size: 20px;
+}
+#titleRow{
+    font-size: smaller;
+    th{
+        border-bottom: 1px solid black;
+    }
+}
+.itemRow{
+    height: 50px;
+    text-align: center;
+    font-weight: 250;
+    td{
+        border-bottom: 1px solid lightgrey;
+    }
+    .col1{
+        width: 5%;
+        padding-bottom: 8px;
+    }
+    .col2{
+        width: 70%;
+        padding-bottom: 8px;
+    }
+    .col3{
+        width: 15%;
+        padding-bottom: 8px;
+    }
+    .col4{
+        width: 7.5%;
+    }
+    .col5{
+        width: 7.5%;
+    }
+}
+select{
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: aliceblue;
+    border: 1px solid grey;
+    border-radius: 10%;
+}
+.taskBtn{
+    font-size: 10px;
+    max-width: 35px;
+    max-height: 35px;
+    height: 35px;
+    width: 35px;
+    background-color: aliceblue;
+    border-radius: 10%;
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+}
+.editBtn{
+    border: 1px solid #1bf759;
+}
+.delBtn{
+    border: 1px solid #FD1C1C;
+}
+.add{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-bottom: 15px;
+}
+#addTask{
+    width: fit-content;
+    padding: 7px 12px;
+    background-color: aliceblue;
+    border: 2px solid #49bcff;
+    border-radius: 10%;
+    color: #49bcff;
+    font-size: 15px;
+    font-weight: 500;
+}
+.taskBtn:hover, #addTask:hover, select:hover{
+    background-color: rgb(216, 223, 230);
+}
+.taskBtn:active, #addTask:active, select:active{
+    background-color: rgb(193, 204, 214);
+}
