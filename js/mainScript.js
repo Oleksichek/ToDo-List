@@ -10,7 +10,11 @@ class TaskItem {
         let td = this.elementObj.querySelectorAll("td");
         td[0].textContent = this.id;
         td[1].textContent = `Task ${this.id}`;
+        td[2].children[0].addEventListener("input", () => changeStatus(this.id));
         td[4].children[0].addEventListener("click", () => deleteTask(this.id));
+
+        this.elementObj.children[2].children[0].style.borderColor = "blue";
+        this.elementObj.children[2].children[0].style.color = "blue";
     }
 
     getID() {
@@ -26,7 +30,7 @@ function addTask() {
     let taskItemNode = taskItemPrefab.content.cloneNode(true);
     taskTable.appendChild(taskItemNode);
     const nextId = getLastId() + 1;
-    let newTask = new TaskItem(nextId, `Task ${nextId}`, 1, taskTable.lastElementChild);
+    let newTask = new TaskItem(nextId, `Task ${nextId}`, 0, taskTable.lastElementChild);
     newTask.setUp();
     taskItems.push(newTask);
 }
@@ -42,6 +46,41 @@ function getLastId()
     return lastId;
 }
 
+function getTaskItemById(id) {
+    for (const item of taskItems) {
+        if (item.getID() != id) continue;
+        return item;
+    }
+    return null;
+}
+
+function changeStatus(id) {
+    let taskItem = getTaskItemById(id);
+    if (taskItem == null)
+        return;
+
+    taskItem.status = taskItem.elementObj.children[2].children[0].selectedIndex;
+
+    switch(taskItem.status) {
+        case 0:
+            taskItem.elementObj.children[2].children[0].style.borderColor = "blue";
+            taskItem.elementObj.children[2].children[0].style.color = "blue";
+            break;
+        case 1:
+            taskItem.elementObj.children[2].children[0].style.borderColor = "#03ad8b";
+            taskItem.elementObj.children[2].children[0].style.color = "#03ad8b";
+            break;
+        case 2:
+            taskItem.elementObj.children[2].children[0].style.borderColor = "orange";
+            taskItem.elementObj.children[2].children[0].style.color = "orange";
+            break;
+        case 3:
+            taskItem.elementObj.children[2].children[0].style.borderColor = "green";
+            taskItem.elementObj.children[2].children[0].style.color = "green";
+            break;
+    }
+}
+
 function deleteTask(id) {
     let taskItem;
     let idx = -1;
@@ -51,6 +90,8 @@ function deleteTask(id) {
         taskItem = item;
         break;
     }
+
+    if (taskItem == null) return;
 
     taskItem.elementObj.remove();
     taskItems.splice(idx, 1);
