@@ -7,38 +7,40 @@
     <link rel="stylesheet" href="css\mainStyle.css">
 </head>
 <body>
-    <div class="title">
-        <h1>TODO List</h1>
-    </div>
-    <div class="add">
-        <button id="addTask" onclick="addTask()">Add Task</button>
-    </div>
-    <table id="taskTable">
-        <tr id="titleRow">
-            <th class="col1">#</th>
-            <th class="col2">Task</th>
-            <th class="col3">Status</th>
-            <th class="col4">Edit</th>
-            <th class="col5">Remove</th>
-        </tr>
-        <template id="taskItemTemplate">
-            <tr class="itemRow">
-                <td class="col1">0</td>
-                <td class="col2">name</td>
-                <td class="col3">
-                    <select name="" id="">
-                        <option value="">To do</option>
-                        <option value="">In Progress</option>
-                        <option value="">In review</option>
-                        <option value="">Completed</option>
-                    </select>
-                </td>
-                <td class="col4"><button class="taskBtn editBtn"><img src="images\edit.png" alt="edit"></button></td>
-                <td class="col5"><button class="taskBtn delBtn"><img src="images\del.png" alt="delete"></button></td>
+    <nav>
+        <img src="" alt="">
+        <p>TODO List</p>
+    </nav>
+    <div class="wraper">
+        <div class="add">
+            <button id="addTask" onclick="addTask()">Add Task</button>
+        </div>
+        <table id="taskTable">
+            <tr id="titleRow">
+                <th class="col1">#</th>
+                <th class="col2">Task</th>
+                <th class="col3">Status</th>
+                <th class="col4">Edit</th>
+                <th class="col5">Remove</th>
             </tr>
-         </template>
-    </table>
-
+            <template id="taskItemTemplate">
+                <tr class="itemRow">
+                    <td class="col1">0</td>
+                    <td class="col2">name</td>
+                    <td class="col3">
+                        <select name="" id="">
+                            <option value="">To do</option>
+                            <option value="">In Progress</option>
+                            <option value="">In review</option>
+                            <option value="">Completed</option>
+                        </select>
+                    </td>
+                    <td class="col4"><button class="taskBtn editBtn"><img src="images\edit.png" alt="edit"></button></td>
+                    <td class="col5"><button class="taskBtn delBtn"><img src="images\del.png" alt="delete"></button></td>
+                </tr>
+             </template>
+        </table>
+    </div>
     <script src="js/mainScript.js"></script>
 </body>
 </html>

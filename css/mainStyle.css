@@ -1,19 +1,26 @@
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin: 50px;
     background-color: aliceblue;
+    margin: 0;
 }
-h1{
-    font-size: 50px;
-    margin-top: 50px;
-    margin-left: 10%;
+nav{
+    position: absolute;
+    width: 100%;
+    background-color: rgb(165, 213, 255);
+    p{
+        margin-left: 10%;
+        font-size: 25px;
+    }
 }
-.title{
-    height: 250px;
+.wraper{
+    position: relative;
+    padding-top: 15%;
+    max-width: 60%;
+    min-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
-#todoTable{
+#taskTable{
     border-collapse: collapse;
     font-size: 20px;
 }
@@ -30,24 +37,24 @@ h1{
     td{
         border-bottom: 1px solid lightgrey;
     }
-    .col1{
-        width: 5%;
-        padding-bottom: 8px;
-    }
-    .col2{
-        width: 70%;
-        padding-bottom: 8px;
-    }
-    .col3{
-        width: 15%;
-        padding-bottom: 8px;
-    }
-    .col4{
-        width: 7.5%;
-    }
-    .col5{
-        width: 7.5%;
-    }
+}
+.col1{
+    width: 5%;
+    padding-bottom: 8px;
+}
+.col2{
+    width: 70%;
+    padding-bottom: 8px;
+}
+.col3{
+    width: 15%;
+    padding-bottom: 8px;
+}
+.col4{
+    width: 7.5%;
+}
+.col5{
+    width: 7.5%;
 }
 select{
     text-align: center;
@@ -56,6 +63,8 @@ select{
     background-color: aliceblue;
     border: 1px solid grey;
     border-radius: 10%;
+    width: 75%;
+    height: 80%;
 }
 .taskBtn{
     font-size: 10px;
