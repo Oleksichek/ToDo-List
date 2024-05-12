@@ -96,3 +96,9 @@ function deleteTask(id) {
     taskItem.elementObj.remove();
     taskItems.splice(idx, 1);
 }
+
+//Щоб відкрити кастомне поле для введення тексту
+//document.getElementById('popupWraper').style.display = 'block';
+
+//Щоб закрити кастомне поле для введення тексту
+//document.getElementById('popupWraper').style.display = 'none';

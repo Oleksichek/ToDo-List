@@ -35,6 +35,9 @@ nav{
     th{
         border-bottom: 1px solid black;
     }
+    .col4, .col5{
+        padding-bottom: 8px;
+    }
 }
 .itemRow{
     height: 50px;
@@ -82,6 +85,7 @@ select{
     width: 35px;
     background-color: aliceblue;
     border-radius: 10%;
+    cursor: pointer;
     img{
         display: block;
         margin-left: auto;
@@ -91,9 +95,11 @@ select{
 }
 .editBtn{
     border: 1px solid #1bf759;
+    cursor: pointer;
 }
 .delBtn{
     border: 1px solid #FD1C1C;
+    cursor: pointer;
 }
 .add{
     display: flex;
@@ -110,10 +116,56 @@ select{
     color: #49bcff;
     font-size: 15px;
     font-weight: 500;
+    cursor: pointer;
 }
 .taskBtn:hover, #addTask:hover, select:hover{
     background-color: rgb(216, 223, 230);
 }
 .taskBtn:active, #addTask:active, select:active{
     background-color: rgb(193, 204, 214);
+}
+#popupWraper{
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2.5%;
+    border-radius: 10%;
+    box-shadow: 0 0 10px black;
+    text-align: center;
+}
+#closePopup{
+    position: absolute;
+    top: 6px;
+    right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+    color: grey;
+}
+#textInput {
+    width: 80%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    margin-bottom: 5%;
+    border: 1px solid #dddddd;
+    border-radius: 6%;
+}
+#submitBtn{
+    background-color: green;
+    color: white;
+    padding: 2.5% 5%;
+    border: none;
+    border-radius: 7.5%;
+    cursor: pointer;
+    font-size: 16px;
 }
