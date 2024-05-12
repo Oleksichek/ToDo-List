@@ -13,8 +13,8 @@ class TaskItem {
         td[2].children[0].addEventListener("input", () => changeStatus(this.id));
         td[4].children[0].addEventListener("click", () => deleteTask(this.id));
 
-        this.elementObj.children[2].children[0].style.borderColor = "blue";
-        this.elementObj.children[2].children[0].style.color = "blue";
+        this.elementObj.children[2].children[0].style.borderColor = "#269ffc";
+        this.elementObj.children[2].children[0].style.color = "#269ffc";
     }
 
     getID() {
@@ -63,8 +63,8 @@ function changeStatus(id) {
 
     switch(taskItem.status) {
         case 0:
-            taskItem.elementObj.children[2].children[0].style.borderColor = "blue";
-            taskItem.elementObj.children[2].children[0].style.color = "blue";
+            taskItem.elementObj.children[2].children[0].style.borderColor = "#269ffc";
+            taskItem.elementObj.children[2].children[0].style.color = "#269ffc";
             break;
         case 1:
             taskItem.elementObj.children[2].children[0].style.borderColor = "#03ad8b";

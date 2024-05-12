@@ -7,9 +7,15 @@ nav{
     position: absolute;
     width: 100%;
     background-color: rgb(165, 213, 255);
+    display: flex;
     p{
-        margin-left: 10%;
         font-size: 25px;
+    }
+    img{
+        align-self: center;
+        margin-left: 2%;
+        width: 10%;
+        height: 10%;
     }
 }
 .wraper{
@@ -64,6 +70,9 @@ select{
     width: 75%;
     height: 80%;
     outline: none;
+    border-radius: 10%;
+    border-style: solid;
+    border-width: 2px;
 }
 .taskBtn{
     font-size: 10px;
