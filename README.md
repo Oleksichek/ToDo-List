@@ -1,2 +1,2 @@
 # ToDo-List
-ToDo List for WSIIZ
+Project for WSIIZ
