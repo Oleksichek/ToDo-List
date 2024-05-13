@@ -35,7 +35,7 @@ nav{
     th{
         border-bottom: 1px solid black;
     }
-    .col4, .col5{
+    .col4, .col5, .col6{
         padding-bottom: 8px;
     }
 }
@@ -122,10 +122,10 @@ select{
     font-size: 15px;
     font-weight: 500;
 }
-.taskBtn:hover, #addTask:hover, select:hover{
+.taskBtn:hover, #addTask:hover, select:hover, #deadline:hover{
     background-color: rgb(216, 223, 230);
 }
-.taskBtn:active, #addTask:active, select:active{
+.taskBtn:active, #addTask:active, select:active, #deadline:active{
     background-color: rgb(193, 204, 214);
 }
 #popupWraper{
@@ -171,4 +171,9 @@ select{
     border-radius: 3%;
     cursor: pointer;
     font-size: 16px;
+}
+#deadline{
+    background-color: aliceblue;
+    border: rgb(235, 161, 1) 2px solid;
+    border-radius: 5%;
 }
