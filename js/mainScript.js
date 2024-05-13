@@ -1,8 +1,9 @@
 class TaskItem {
-    constructor(id, name, status, elementObj) {
+    constructor(id, name, status, date, elementObj) {
         this.id = id;
         this.name = name;
         this.status = status;
+        this.date = date;
         this.elementObj = elementObj;
     }
 
@@ -12,8 +13,11 @@ class TaskItem {
         td[1].textContent = this.name;
         td[1].addEventListener("dblclick", () => editTaskName(this.id));
         td[2].children[0].addEventListener("input", () => changeStatus(this.id));
-        td[3].children[0].addEventListener("click", () => editTaskName(this.id));
-        td[4].children[0].addEventListener("click", () => deleteTask(this.id));
+        td[3].children[0].addEventListener("input", () => changeDeadline(this.id));
+        td[3].children[0].min = new Date().toISOString().split("T")[0];
+        td[3].children[0].value = this.date;
+        td[4].children[0].addEventListener("click", () => editTaskName(this.id));
+        td[5].children[0].addEventListener("click", () => deleteTask(this.id));
         this.elementObj.children[2].children[0].selectedIndex = this.status;
 
         switch(this.status) {
@@ -50,17 +54,17 @@ function addTask() {
     let taskItemNode = taskItemPrefab.content.cloneNode(true);
     taskTable.appendChild(taskItemNode);
     const nextId = getLastId() + 1;
-    let newTask = new TaskItem(nextId, `Task ${nextId}`, 0, taskTable.lastElementChild);
+    let newTask = new TaskItem(nextId, `Task ${nextId}`, 0, new Date().toISOString().split("T")[0], taskTable.lastElementChild);
     newTask.setUp();
     taskItems.push(newTask);
     saveTaskInCookies(newTask);
 }
 
-function addTaskByData(name, status) {
+function addTaskByData(name, status, date) {
     let taskItemNode = taskItemPrefab.content.cloneNode(true);
     taskTable.appendChild(taskItemNode);
     const nextId = getLastId() + 1;
-    let newTask = new TaskItem(nextId, name, status, taskTable.lastElementChild);
+    let newTask = new TaskItem(nextId, name, status, date, taskTable.lastElementChild);
     newTask.setUp();
     taskItems.push(newTask);
     saveTaskInCookies(newTask);
@@ -114,6 +118,17 @@ function changeStatus(id) {
     changeTaskInCookies(taskItem, "status", taskItem.status);
 }
 
+function changeDeadline(id) {
+    let taskItem = getTaskItemById(id);
+    if (taskItem == null)
+        return;
+
+    let input = taskItem.elementObj.children[3].children[0].value;
+    taskItem.date = input;
+
+    changeTaskInCookies(taskItem, "date", taskItem.date);
+}
+
 function deleteTask(id) {
     let taskItem;
     let idx = -1;
@@ -141,7 +156,8 @@ function saveTaskInCookies(task) {
         {
             'id':task.id,
             'name':task.name,
-            'status':task.status 
+            'status':task.status,
+            'date':task.date
         },
     ]
 
@@ -221,6 +237,6 @@ function loadSavedTasks() {
     document.cookie = null;
 
     for (const taskItem of prevJson) {
-        addTaskByData(taskItem.name, taskItem.status);
+        addTaskByData(taskItem.name, taskItem.status, taskItem.date);
     } 
 }

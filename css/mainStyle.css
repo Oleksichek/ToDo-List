@@ -62,10 +62,14 @@ nav{
     padding-bottom: 8px;
 }
 .col4{
+    width: 15%;
+    padding-bottom: 8px;
+}
+.col5{
     width: 7%;
     padding-bottom: 5px;
 }
-.col5{
+.col6{
     width: 7%;
     padding-bottom: 5px;
 }

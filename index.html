@@ -20,8 +20,9 @@
                 <th class="col1">#</th>
                 <th class="col2">Task</th>
                 <th class="col3">Status</th>
-                <th class="col4">Edit</th>
-                <th class="col5">Remove</th>
+                <th class="col4">Deadline</th>
+                <th class="col5">Edit</th>
+                <th class="col6">Remove</th>
             </tr>
             <template id="taskItemTemplate">
                 <tr class="itemRow">
@@ -35,8 +36,9 @@
                             <option value="">Completed</option>
                         </select>
                     </td>
-                    <td class="col4"><button class="taskBtn editBtn"><img src="images\edit.png" alt="edit"></button></td>
-                    <td class="col5"><button class="taskBtn delBtn"><img src="images\del.png" alt="delete"></button></td>
+                    <td class="col4"><input type="date" name="deadline" required></td>
+                    <td class="col5"><button class="taskBtn editBtn"><img src="images\edit.png" alt="edit"></button></td>
+                    <td class="col6"><button class="taskBtn delBtn"><img src="images\del.png" alt="delete"></button></td>
                 </tr>
              </template>
         </table>
