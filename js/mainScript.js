@@ -44,6 +44,7 @@ class TaskItem {
 let taskItems = []
 let taskTable = document.getElementById("taskTable");
 let taskItemPrefab = document.getElementById("taskItemTemplate");
+let editedTask;
 
 function addTask() {
     let taskItemNode = taskItemPrefab.content.cloneNode(true);
@@ -177,21 +178,37 @@ function changeTaskInCookies(task, key, value) {
 }
 
 function editTaskName(id) {
-    taskName = prompt("Enter a name for the selected task: ");
+    document.getElementById('popupWraper').style.display = 'block';
+    editedTask = getTaskItemById(id);
+}
+
+function submitTaskName() {
+    document.getElementById('popupWraper').style.display = 'none';
+    taskName = document.getElementById('popupWraper').children[0].children[1].children[1].value;
+    document.getElementById('popupWraper').children[0].children[1].children[1].value = "";
 
     if (!taskName || taskName == "null") {
+        editedTask = null;
         alert("Task name is null or empty.");
         return;
     }
     else if (taskName.length > 32) {
+        editedTask = null;
         alert("The name must be less than or equal to 32 characters.");
         return;
     }
 
-    taskItem = getTaskItemById(id);
+    if (editedTask === null)
+        return;
 
-    taskItem.elementObj.children[1].textContent = taskName;
-    changeTaskInCookies(taskItem, "name", taskName);
+    editedTask.elementObj.children[1].textContent = taskName;
+    changeTaskInCookies(editedTask, "name", taskName);
+    editedTask = null;
+}
+
+function closeTaskNameEditor() {
+    document.getElementById('popupWraper').style.display = 'none';
+    editedTask = null;
 }
 
 loadSavedTasks();
